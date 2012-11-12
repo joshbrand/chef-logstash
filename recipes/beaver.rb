@@ -11,6 +11,7 @@ if platform?  "debian", "ubuntu"
   package 'libzmq-dev'
 elsif platform? "redhat", "centos", "amazon", "fedora", "scientific"
   package 'zeromq-devel'
+  package 'gcc'
 end
 
 basedir = node['logstash']['basedir'] + '/beaver'
