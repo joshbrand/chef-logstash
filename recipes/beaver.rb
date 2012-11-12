@@ -6,8 +6,12 @@
 include_recipe "logstash::default"
 include_recipe "python::default"
 
-package 'libzmq-dev'
 package 'git'
+if platform?  "debian", "ubuntu"
+  package 'libzmq-dev'
+elsif platform? "redhat", "centos", "amazon", "fedora", "scientific"
+  package 'zeromq-devel'
+end
 
 basedir = node['logstash']['basedir'] + '/beaver'
 
