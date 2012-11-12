@@ -14,6 +14,10 @@ elsif platform? "redhat", "centos", "amazon", "fedora", "scientific"
   package 'gcc'
 end
 
+python_pip 'argparse' do
+    action :install
+end
+
 basedir = node['logstash']['basedir'] + '/beaver'
 
 conf_file = "#{basedir}/etc/beaver.conf"
